@@ -1,6 +1,7 @@
 import {ReactNode} from "react";
 import NavbarWrapper from "@/components/navbar/navbar-wrapper";
-import HeroSection from "@/components/hero/hero-section";
+import HeroSection from "@/features/landing-page/components/hero-section";
+import {Footer} from "@/features/landing-page/components/footer";
 
 interface PublicLayoutProps {
     children: ReactNode,
@@ -9,13 +10,15 @@ interface PublicLayoutProps {
 export default function PublicLayout({ children }: PublicLayoutProps) {
     return (
         <>
-            <HeroSection />
-            <div className="mx-auto min-h-lvh w-full lg:w-4/5">
-                <NavbarWrapper className="px-5 py-5"/>
-                <main role="main" className="flex justify-center ">
+
+            <div className=" min-h-lvh w-full ">
+                <NavbarWrapper className="mx-auto px-5 py-5 lg:w-4/5"/>
+                <HeroSection />
+                <main role="main" className="mx-auto flex justify-center lg:w-4/5">
                     {children}
                 </main>
             </div>
+            <Footer />
         </>
     );
 }

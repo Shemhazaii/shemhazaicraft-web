@@ -1,0 +1,158 @@
+import {Card} from "@/components/ui/card";
+import Link from "next/link";
+import {ArrowRight, Signal, Users} from "lucide-react";
+import {Badge} from "@/components/ui/badge";
+import Image from "next/image";
+
+interface ServerInfo {
+    id: string;
+    name: string;
+    tags: string[];
+    players: number;
+    maxPlayers: number;
+    ping: number | null;
+    status: "ONLINE" | "OFFLINE";
+    imageUrl: string;
+}
+
+const servers: ServerInfo[] = [
+    {
+        id: "1",
+        name: "RealCraft SMP",
+        tags: ["Survival", "Economy", "Quests"],
+        players: 12,
+        maxPlayers: 50,
+        ping: 72,
+        status: "ONLINE",
+        imageUrl: "/dummy.png", // ganti sesuai lokasi gambarmu
+    },
+    {
+        id: "2",
+        name: "Exploration",
+        tags: ["Adventure", "Exploration", "RPG"],
+        players: 4,
+        maxPlayers: 30,
+        ping: 89,
+        status: "ONLINE",
+        imageUrl: "/dummy.png",
+    },
+    {
+        id: "3",
+        name: "CookCraft",
+        tags: ["Cooking", "Farming", "Community"],
+        players: 0,
+        maxPlayers: 20,
+        ping: null,
+        status: "OFFLINE",
+        imageUrl: "/dummy.png",
+    },
+];
+
+export default function ServerStatusCard() {
+    return(
+        <Card className="w-full p-5 rounded-xl">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                    {/* Garis hijau kecil di sebelah teks */}
+                    <span className="w-1.5 h-4 bg-primary rounded-sm"></span>
+                    <h2 className="text-xs font-bold tracking-wider uppercase">
+                        Server Status
+                    </h2>
+                </div>
+                <Link
+                    href="#"
+                    className="text-xs font-semibold text-primary hover:text-emerald-400 flex items-center gap-1 transition-colors"
+                >
+                    View all servers <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+            </div>
+
+            {/* Grid Server List */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {servers.map((server) => {
+                    const isOnline = server.status === "ONLINE";
+
+                    return (
+                        <div
+                            key={server.id}
+                            className={`relative flex gap-3.5 p-3 rounded-lg border bg-background/40 backdrop-blur-sm transition-all ${
+                                isOnline
+                                    ? "border-emerald-500/30 hover:border-emerald-500/60"
+                                    : "border-red-500/30 hover:border-red-500/60"
+                            }`}
+                        >
+                            {/* Image Thumbnail */}
+                            <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden bg-slate-800">
+                                <Image src={server.imageUrl} alt={server.name} fill className="object-cover" />
+                            </div>
+
+                            {/* Info Detail */}
+                            <div className="flex flex-col justify-between flex-1 min-w-0">
+                                {/* Header Card: Name & Badge Status */}
+                                <div className="flex items-start justify-between gap-1">
+                                    <h3 className="font-bold text-sm truncate">
+                                        {server.name}
+                                    </h3>
+                                    <Badge
+                                        variant="outline"
+                                        className={`text-[10px] px-2 py-0.5 rounded-full font-semibold border flex items-center gap-1.5 shrink-0 ${
+                                            isOnline
+                                                ? "dark:bg-emerald-950/40 dark:text-emerald-400 dark:border-emerald-500/40"
+                                                : "dark:bg-red-950/40 dark:text-red-400 dark:border-red-500/40"
+                                        }`}
+                                    >
+                    <span
+                        className={`w-1.5 h-1.5 rounded-full ${
+                            isOnline ? "bg-emerald-400" : "bg-red-400"
+                        }`}
+                    ></span>
+                                        {server.status}
+                                    </Badge>
+                                </div>
+
+                                {/* Tags */}
+                                <p className="text-[11px] text-slate-400 truncate">
+                                    {server.tags.join(" • ")}
+                                </p>
+
+                                {/* Footer Card: Players & Ping */}
+                                <div className="flex items-center justify-between text-xs  mt-2">
+                                    <div className="flex items-center gap-1.5">
+                                        <Users className="w-3.5 h-3.5" />
+                                        <span className="font-medium ">
+                                            {server.players} / {server.maxPlayers}
+                                        </span>
+                                    </div>
+
+                                    <div className="flex items-center gap-1">
+                                        <Signal
+                                            className={`w-3.5 h-3.5 ${
+                                                isOnline
+                                                    ? server.ping! < 80
+                                                        ? "text-emerald-400"
+                                                        : "text-amber-400"
+                                                    : "text-slate-600"
+                                            }`}
+                                        />
+                                        <span
+                                            className={`font-semibold ${
+                                                isOnline
+                                                    ? server.ping! < 80
+                                                        ? "text-emerald-400"
+                                                        : "text-amber-400"
+                                                    : "text-slate-600"
+                                            }`}
+                                        >
+                      {isOnline ? `${server.ping}ms` : "-"}
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+        </Card>
+    )
+}

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
     return (
-        <div className=" min-h-125 w-full bg-[#0b0f19] text-white overflow-hidden absolute top-20">
+        <div className=" min-h-125 w-full bg-[#0b0f19] text-white overflow-hidden absolute">
 
             <div className="absolute inset-0 z-0">
                 <Image
