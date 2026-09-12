@@ -11,7 +11,7 @@ export default function Title() {
             <div>Build, play, and grow together.</div>
             <div className="mt-5 flex justify-start gap-5">
                 <Button className={"py-5"} variant={"default"}><Play />PLAY NOW</Button>
-                <Button className={"py-5"} variant={"outline"}><Play />VIEW SERVERS</Button>
+                <Button className={"py-5"} variant={"outline"}>VIEW SERVERS</Button>
             </div>
         </div>
     )
