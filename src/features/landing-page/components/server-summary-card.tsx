@@ -13,7 +13,7 @@ export default function ServerSummaryCard() {
             <span className="text-xs font-medium text-slate-400">
               Total Players Online
             </span>
-                        <span className="text-lg font-bold text-primary">16</span>
+                        <span className="text-lg font-bold text-primary">0</span>
                     </div>
                 </div>
 
@@ -27,7 +27,7 @@ export default function ServerSummaryCard() {
             <span className="text-xs font-medium text-slate-400">
               Total Servers
             </span>
-                        <span className="text-lg font-bold text-primary">3</span>
+                        <span className="text-lg font-bold text-primary">4</span>
                     </div>
                 </div>
             </CardContent>

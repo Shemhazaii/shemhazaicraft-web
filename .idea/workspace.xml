@@ -4,24 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/dummy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/globals.css.bak" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/not-found.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/landing-page/components/footer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/landing-page/components/modpack-card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/landing-page/components/news-card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/landing-page/components/server-summary-card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/landing-page/components/title.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/landing-page/types.ts" afterDir="false" />
+    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="finished main screen">
+      <change afterPath="$PROJECT_DIR$/src/hooks/server-status.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/websocket.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/server.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(public)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(public)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(public)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(public)/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/hero/hero-section.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/hero-section.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/server-summary-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/server-summary-card.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,14 +20,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="62" />
+    <option name="cachedIndexableFilesCount" value="66" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -89,6 +80,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.Next.js: server-side.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/home/shemhazai/WebstormProjects/shemhazaicraft-web/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -139,11 +131,36 @@
       <workItem from="1789085216528" duration="15230000" />
       <workItem from="1789140026634" duration="3910000" />
       <workItem from="1789193349873" duration="8218000" />
-      <workItem from="1789211024770" duration="1640000" />
+      <workItem from="1789211024770" duration="2589000" />
+      <workItem from="1789222683901" duration="283000" />
+      <workItem from="1789278948249" duration="4681000" />
+      <workItem from="1789305881129" duration="5161000" />
+      <workItem from="1789311859569" duration="4892000" />
     </task>
+    <task id="LOCAL-00001" summary="finished main screen">
+      <option name="closed" value="true" />
+      <created>1789213232154</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1789213232154</updated>
+    </task>
+    <task id="LOCAL-00002" summary="finished main screen">
+      <option name="closed" value="true" />
+      <created>1789213336586</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1789213336586</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="finished main screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished main screen" />
   </component>
 </project>

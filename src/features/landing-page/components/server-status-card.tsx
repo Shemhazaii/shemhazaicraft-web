@@ -1,8 +1,13 @@
+"use client";
+
 import {Card} from "@/components/ui/card";
 import Link from "next/link";
 import {ArrowRight, Signal, Users} from "lucide-react";
 import {Badge} from "@/components/ui/badge";
 import Image from "next/image";
+import {ServerStatusResponse} from "@/types/server";
+import {useEffect, useState} from "react";
+import {useServerStatus} from "@/hooks/server-status";
 
 interface ServerInfo {
     id: string;
@@ -49,6 +54,34 @@ const servers: ServerInfo[] = [
 ];
 
 export default function ServerStatusCard() {
+
+    const [initialServers, setInitialServers] = useState<ServerStatusResponse[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/servers/status`)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch server status");
+                }
+
+                return response.json();
+            })
+            .then((data) => {
+                setInitialServers(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, []);
+    const servers = useServerStatus(initialServers);
+
+    if (loading) {
+        return (<></>);
+    }
     return(
         <Card className="w-full p-5 rounded-xl">
             {/* Header */}
@@ -71,11 +104,11 @@ export default function ServerStatusCard() {
             {/* Grid Server List */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {servers.map((server) => {
-                    const isOnline = server.status === "ONLINE";
+                    const isOnline = server.status.state === "ONLINE";
 
                     return (
                         <div
-                            key={server.id}
+                            key={server.server}
                             className={`relative flex gap-3.5 p-3 rounded-lg border bg-background/40 backdrop-blur-sm transition-all ${
                                 isOnline
                                     ? "border-emerald-500/30 hover:border-emerald-500/60"
@@ -84,7 +117,7 @@ export default function ServerStatusCard() {
                         >
                             {/* Image Thumbnail */}
                             <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden bg-slate-800">
-                                <Image src={server.imageUrl} alt={server.name} fill className="object-cover" />
+                                <Image src={"/dummy.png"} alt={server.server} fill className="object-cover" />
                             </div>
 
                             {/* Info Detail */}
@@ -92,7 +125,7 @@ export default function ServerStatusCard() {
                                 {/* Header Card: Name & Badge Status */}
                                 <div className="flex items-start justify-between gap-1">
                                     <h3 className="font-bold text-sm truncate">
-                                        {server.name}
+                                        {server.status.server}
                                     </h3>
                                     <Badge
                                         variant="outline"
@@ -107,13 +140,13 @@ export default function ServerStatusCard() {
                             isOnline ? "bg-emerald-400" : "bg-red-400"
                         }`}
                     ></span>
-                                        {server.status}
+                                        {server.status.state}
                                     </Badge>
                                 </div>
 
                                 {/* Tags */}
                                 <p className="text-[11px] text-slate-400 truncate">
-                                    {server.tags.join(" • ")}
+                                    {server.status.description}
                                 </p>
 
                                 {/* Footer Card: Players & Ping */}
@@ -121,7 +154,7 @@ export default function ServerStatusCard() {
                                     <div className="flex items-center gap-1.5">
                                         <Users className="w-3.5 h-3.5" />
                                         <span className="font-medium ">
-                                            {server.players} / {server.maxPlayers}
+                                            {server.status.playersOnline} / {server.status.playersMax}
                                         </span>
                                     </div>
 
@@ -129,7 +162,7 @@ export default function ServerStatusCard() {
                                         <Signal
                                             className={`w-3.5 h-3.5 ${
                                                 isOnline
-                                                    ? server.ping! < 80
+                                                    ? server.status.latency! < 80
                                                         ? "text-emerald-400"
                                                         : "text-amber-400"
                                                     : "text-slate-600"
@@ -138,13 +171,13 @@ export default function ServerStatusCard() {
                                         <span
                                             className={`font-semibold ${
                                                 isOnline
-                                                    ? server.ping! < 80
+                                                    ? server.status.latency! < 80
                                                         ? "text-emerald-400"
                                                         : "text-amber-400"
                                                     : "text-slate-600"
                                             }`}
                                         >
-                      {isOnline ? `${server.ping}ms` : "-"}
+                      {isOnline ? `${server.status.latency}ms` : "-"}
                     </span>
                                     </div>
                                 </div>
