@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="connected websocket">
+    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="finised websocket integration with server status">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/server-summary-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/server-summary-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/server-status.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/server-status.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/server.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +135,7 @@
       <workItem from="1789311859569" duration="5130000" />
       <workItem from="1789318756671" duration="253000" />
       <workItem from="1789347649540" duration="2856000" />
-      <workItem from="1789366784352" duration="6494000" />
+      <workItem from="1789366784352" duration="7837000" />
     </task>
     <task id="LOCAL-00001" summary="finished main screen">
       <option name="closed" value="true" />
@@ -161,7 +161,23 @@
       <option name="project" value="LOCAL" />
       <updated>1789317609607</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="finised websocket integration with server status">
+      <option name="closed" value="true" />
+      <created>1789374742641</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1789374742641</updated>
+    </task>
+    <task id="LOCAL-00005" summary="finised websocket integration with server status">
+      <option name="closed" value="true" />
+      <created>1789374770851</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1789374770851</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +186,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="finished main screen" />
     <MESSAGE value="connected websocket" />
-    <option name="LAST_COMMIT_MESSAGE" value="connected websocket" />
+    <MESSAGE value="finised websocket integration with server status" />
+    <option name="LAST_COMMIT_MESSAGE" value="finised websocket integration with server status" />
   </component>
 </project>

@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 import {ServerStatusResponse} from "@/types/server";
 import {useServerStatus} from "@/hooks/server-status";
 import {Skeleton} from "@/components/ui/skeleton";
+import {AnimatePresence, motion} from "framer-motion";
 
 
 export default function ServerSummaryCard() {
@@ -54,7 +55,31 @@ export default function ServerSummaryCard() {
             <span className="text-xs font-medium text-slate-400">
               Total Players Online
             </span>
-                        <span className="text-lg font-bold text-primary">{isDataReady?(totalPlayers):(<Skeleton className={"h-6 w-6"} />)}</span>
+                        <span className="text-lg font-bold text-primary">
+                          <AnimatePresence mode="wait">
+                            {isDataReady ? (
+                                <motion.span
+                                    key="total-players"
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.8 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    {totalPlayers}
+                                </motion.span>
+                            ) : (
+                                <motion.span
+                                    key="skeleton"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.15 }}
+                                >
+                                    <Skeleton className="h-6 w-6" />
+                                </motion.span>
+                            )}
+                          </AnimatePresence>
+                        </span>
                     </div>
                 </div>
 
@@ -68,7 +93,31 @@ export default function ServerSummaryCard() {
             <span className="text-xs font-medium text-slate-400">
               Total Servers
             </span>
-                        <span className="text-lg font-bold text-primary">{isDataReady?(totalServers):(<Skeleton className={"h-6 w-6"} />)}</span>
+                        <span className="text-lg font-bold text-primary">
+                          <AnimatePresence mode="wait">
+                            {isDataReady ? (
+                                <motion.span
+                                    key="total-players"
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.8 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    {totalServers}
+                                </motion.span>
+                            ) : (
+                                <motion.span
+                                    key="skeleton"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.15 }}
+                                >
+                                    <Skeleton className="h-6 w-6" />
+                                </motion.span>
+                            )}
+                          </AnimatePresence>
+                        </span>
                     </div>
                 </div>
             </CardContent>
