@@ -1,7 +1,7 @@
 "use client";
 
 import {useEffect, useState} from "react";
-import type {ServerStatusDetail, ServerStatusResponse} from "@/types/server";
+import type {ServerStatusResponse} from "@/types/server";
 import {createServerStatusClient} from "@/lib/websocket";
 
 export function useServerStatus(

@@ -8,55 +8,13 @@ import Image from "next/image";
 import {ServerStatusResponse} from "@/types/server";
 import {useEffect, useState} from "react";
 import {useServerStatus} from "@/hooks/server-status";
-
-interface ServerInfo {
-    id: string;
-    name: string;
-    tags: string[];
-    players: number;
-    maxPlayers: number;
-    ping: number | null;
-    status: "ONLINE" | "OFFLINE";
-    imageUrl: string;
-}
-
-const servers: ServerInfo[] = [
-    {
-        id: "1",
-        name: "RealCraft SMP",
-        tags: ["Survival", "Economy", "Quests"],
-        players: 12,
-        maxPlayers: 50,
-        ping: 72,
-        status: "ONLINE",
-        imageUrl: "/dummy.png", // ganti sesuai lokasi gambarmu
-    },
-    {
-        id: "2",
-        name: "Exploration",
-        tags: ["Adventure", "Exploration", "RPG"],
-        players: 4,
-        maxPlayers: 30,
-        ping: 89,
-        status: "ONLINE",
-        imageUrl: "/dummy.png",
-    },
-    {
-        id: "3",
-        name: "CookCraft",
-        tags: ["Cooking", "Farming", "Community"],
-        players: 0,
-        maxPlayers: 20,
-        ping: null,
-        status: "OFFLINE",
-        imageUrl: "/dummy.png",
-    },
-];
+import {Skeleton} from "@/components/ui/skeleton";
 
 export default function ServerStatusCard() {
 
     const [initialServers, setInitialServers] = useState<ServerStatusResponse[]>([]);
     const [loading, setLoading] = useState(true);
+
 
     useEffect(() => {
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/servers/status`)
@@ -64,11 +22,36 @@ export default function ServerStatusCard() {
                 if (!response.ok) {
                     throw new Error("Failed to fetch server status");
                 }
-
                 return response.json();
             })
-            .then((data) => {
-                setInitialServers(data);
+            .then(async (data: ServerStatusResponse[]) => {
+
+                const updatedServers: ServerStatusResponse[] = await Promise.all(
+                    data.map(async (item): Promise<ServerStatusResponse> => {
+                        const pingUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/servers/status`;
+                        const startTime = performance.now();
+                        let clientPing = 0;
+
+                        try {
+                            await fetch(pingUrl);
+                            clientPing = Math.round(performance.now() - startTime);
+                        } catch (error) {
+                            console.error(`Gagal ping ke ${item.server}:`, error);
+                            clientPing = 0;
+                        }
+
+
+                        return {
+                            server: item.server,
+                            status: {
+                                ...item.status,
+                                latency: (item.status.latency || 0) + clientPing,
+                            },
+                        };
+                    })
+                );
+
+                setInitialServers(updatedServers);
             })
             .catch((error) => {
                 console.error(error);
@@ -79,9 +62,7 @@ export default function ServerStatusCard() {
     }, []);
     const servers = useServerStatus(initialServers);
 
-    if (loading) {
-        return (<></>);
-    }
+
     return(
         <Card className="w-full p-5 rounded-xl">
             {/* Header */}
@@ -100,29 +81,27 @@ export default function ServerStatusCard() {
                     View all servers <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
             </div>
-
-            {/* Grid Server List */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {servers.map((server) => {
+
+                {
+                   !loading? servers.map((server) => {
                     const isOnline = server.status.state === "ONLINE";
 
+
                     return (
-                        <div
-                            key={server.server}
-                            className={`relative flex gap-3.5 p-3 rounded-lg border bg-background/40 backdrop-blur-sm transition-all ${
+                        <div key={server.server} className={`relative flex gap-3.5 p-3 rounded-lg border bg-background/40 backdrop-blur-sm transition-all ${
                                 isOnline
                                     ? "border-emerald-500/30 hover:border-emerald-500/60"
                                     : "border-red-500/30 hover:border-red-500/60"
-                            }`}
-                        >
-                            {/* Image Thumbnail */}
+                            }`}>
+
                             <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden bg-slate-800">
                                 <Image src={"/dummy.png"} alt={server.server} fill className="object-cover" />
                             </div>
 
-                            {/* Info Detail */}
+
                             <div className="flex flex-col justify-between flex-1 min-w-0">
-                                {/* Header Card: Name & Badge Status */}
+
                                 <div className="flex items-start justify-between gap-1">
                                     <h3 className="font-bold text-sm truncate">
                                         {server.status.server}
@@ -135,16 +114,16 @@ export default function ServerStatusCard() {
                                                 : "dark:bg-red-950/40 dark:text-red-400 dark:border-red-500/40"
                                         }`}
                                     >
-                    <span
-                        className={`w-1.5 h-1.5 rounded-full ${
-                            isOnline ? "bg-emerald-400" : "bg-red-400"
-                        }`}
-                    ></span>
+                                    <span
+                                        className={`w-1.5 h-1.5 rounded-full ${
+                                            isOnline ? "bg-emerald-400" : "bg-red-400"
+                                        }`}
+                                    ></span>
                                         {server.status.state}
                                     </Badge>
                                 </div>
 
-                                {/* Tags */}
+
                                 <p className="text-[11px] text-slate-400 truncate">
                                     {server.status.description}
                                 </p>
@@ -177,14 +156,21 @@ export default function ServerStatusCard() {
                                                     : "text-slate-600"
                                             }`}
                                         >
-                      {isOnline ? `${server.status.latency}ms` : "-"}
-                    </span>
+                                        {isOnline ? `${server.status.latency}ms` : "-"}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     );
-                })}
+                }):(
+                    <>
+                        <Skeleton className="relative flex gap-3.5 p-3 rounded-lg border h-25 transition-all" />
+                        <Skeleton className="relative flex gap-3.5 p-3 rounded-lg border h-25 transition-all" />
+                        <Skeleton className="relative flex gap-3.5 p-3 rounded-lg border h-25 transition-all" />
+                    </>
+                   )
+                }
             </div>
         </Card>
     )
