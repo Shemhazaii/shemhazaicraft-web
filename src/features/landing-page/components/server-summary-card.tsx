@@ -14,7 +14,6 @@ export default function ServerSummaryCard() {
     const [initialServers, setInitialServers] = useState<ServerStatusResponse[]>([]);
     const [loading, setLoading] = useState(true);
 
-
     useEffect(() => {
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/servers/status`)
             .then((response) => {
@@ -44,12 +43,7 @@ export default function ServerSummaryCard() {
         0
     );
 
-
     const isDataReady = !loading && (initialServers.length === 0 || servers.length > 0);
-
-
-
-
 
     return(
         <Card className={"w-fit"}>
