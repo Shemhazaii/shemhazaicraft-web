@@ -19,7 +19,6 @@ export function useServerStatus(isPing: boolean) {
         const client = createServerStatusClient(async (incomingStatus) => {
             let updatedStatus = incomingStatus;
 
-
             if (isPing) {
                 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
                 const startTime = performance.now();
@@ -41,7 +40,6 @@ export function useServerStatus(isPing: boolean) {
                 };
             }
 
-
             setServers((prevServers) => {
                 const exists = prevServers.some((s) => s.server === updatedStatus.server);
                 if (exists) {
@@ -53,11 +51,10 @@ export function useServerStatus(isPing: boolean) {
             });
         });
 
-        // 3. Cleanup: Deactivate client saat unmount
         return () => {
             client.deactivate();
         };
-    }, [isPing]); // Tambahkan isPing ke dependency array
+    }, [isPing]);
 
     return { servers, loading, error };
 }
