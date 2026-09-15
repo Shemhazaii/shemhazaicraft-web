@@ -1,59 +1,41 @@
-"use client";
+import { useState, useEffect, SetStateAction} from "react";
+import {ServerStatusResponse} from "@/types/server";
 
-import {useEffect, useState} from "react";
-import type {ServerStatusResponse} from "@/types/server";
 import {createServerStatusClient} from "@/lib/websocket";
+import serverService from "@/features/landing-page/services/server-service";
 
-export function useServerStatus(
-    initialServers: ServerStatusResponse[] = []
-) {
-    const [servers, setServers] = useState<ServerStatusResponse[]>(initialServers);
-
-    useEffect(() => {
-        if (initialServers.length > 0) {
-            setServers(initialServers);
-        }
-    }, [initialServers]);
+export function useServerStatus(isPing:boolean) {
+    const [servers, setServers] = useState<ServerStatusResponse[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const client = createServerStatusClient(async (update: ServerStatusResponse) => {
-            let clientPing = 0;
-            const targetServer = update.status;
-            const pingUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/servers/status`;
+        // 1. Fetch data awal via HTTP
+        serverService.fetchServersWithPing(isPing)
+            .then((data: SetStateAction<ServerStatusResponse[]>) => setServers(data))
+            .catch((err: { message: SetStateAction<string | null>; }) => setError(err.message))
+            .finally(() => setLoading(false));
 
-            const startTime = performance.now();
-            try {
-                await fetch(pingUrl);
-                clientPing = Math.round(performance.now() - startTime);
-            } catch (error) {
-                console.error(`Gagal ping ke ${targetServer.server}:`, error);
-                clientPing = 0;
-            }
-
-            const totalLatency = targetServer.latency + clientPing;
-
-            update.status = {
-                ...targetServer,
-                latency: totalLatency,
-            };
-
-            setServers((current) => {
-                const exists = current.some((item) => item.server === update.server);
-
+        // 2. Hubungkan STOMP WebSocket untuk update real-time
+        const client = createServerStatusClient((incomingStatus) => {
+            setServers((prevServers) => {
+                // Jika server sudah ada di state, update data server tersebut
+                const exists = prevServers.some((s) => s.server === incomingStatus.server);
                 if (exists) {
-                    return current.map((item) =>
-                        item.server === update.server ? update : item
+                    return prevServers.map((s) =>
+                        s.server === incomingStatus.server ? incomingStatus : s
                     );
-                } else {
-                    return [...current, update];
                 }
+                // Jika server baru, tambahkan ke list
+                return [...prevServers, incomingStatus];
             });
         });
 
+        // 3. Cleanup: Deactivate client saat komponen unmount
         return () => {
             client.deactivate();
         };
     }, []);
-    return servers;
-}
 
+    return { servers, loading, error };
+}

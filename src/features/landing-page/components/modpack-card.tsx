@@ -4,8 +4,14 @@ import {Badge} from "@/components/ui/badge";
 import {Box, Download, HardDrive, Wrench} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {ModpackCardProps} from "@/features/landing-page/types";
+import {formatFileSize} from "@/lib/utils";
 
-export function ModpackCard(modPackData: Partial<ModpackCardProps>) {
+interface Props {
+    modPackData: ModpackCardProps[];
+}
+
+export function ModpackCard(data: Props) {
+
     return(
         <Card className=" p-5 rounded-xl flex flex-col justify-between">
             <div>
@@ -18,64 +24,69 @@ export function ModpackCard(modPackData: Partial<ModpackCardProps>) {
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col sm:flex-row gap-4">
-                    {/* Cover Image */}
-                    <div className="relative w-full sm:w-36 h-36 shrink-0 rounded-lg overflow-hidden ">
-                        <Image src={modPackData.imageUrl || "/images/modpack-cover.png"} alt={modPackData.title || "Modpack Cover"} fill className="object-cover" />
-                    </div>
-
-                    {/* Details */}
-                    <div className="flex flex-col justify-between flex-1">
-                        <div>
-                            <div className="flex items-center gap-2 flex-wrap mb-1.5">
-                                <h3 className="font-bold text-base ">{modPackData.title}</h3>
-                                <Badge className="dark:bg-emerald-950/60 dark:text-primary dark:border-primary/40 text-[11px] px-2 py-0.5 rounded-md font-semibold">
-                                    {modPackData.version}
-                                </Badge>
-                                <Badge className="bg-purple-950/60 dark:text-purple-400 dark:border-purple-500/40 text-[11px] px-2 py-0.5 rounded-md font-semibold">
-                                    {modPackData.tag}
-                                </Badge>
+                <div className="space-y-3">
+                    {data.modPackData.map((item) => (
+                        <div key={item.id} className="flex items-center justify-between gap-3 p-2 rounded-lg hover:bg-secondary transition-colors cursor-pointer group">
+                            {/* Cover Image */}
+                            <div className="relative w-full sm:w-36 h-36 shrink-0 rounded-lg overflow-hidden ">
+                                <Image src={`/dummy.png`} alt={item.name || "Modpack Cover"} fill className="object-cover" />
                             </div>
 
-                            <p className="text-xs text-slate-400 leading-relaxed mb-3">
-                                {modPackData.description || "Custom modpack for RealCraft SMP with over 250+ mods and tons of features!"}
-                            </p>
+                            {/* Details */}
+                            <div className="flex flex-col justify-between flex-1">
+                                <div>
+                                    <div className="flex items-center gap-2 flex-wrap mb-1.5">
+                                        <h3 className="font-bold text-base ">{item.name}</h3>
+                                        <Badge className="dark:bg-emerald-950/60 dark:text-primary dark:border-primary/40 text-[11px] px-2 py-0.5 rounded-md font-semibold">
+                                            {item.version}
+                                        </Badge>
+                                        <Badge className="bg-purple-950/60 dark:text-purple-400 dark:border-purple-500/40 text-[11px] px-2 py-0.5 rounded-md font-semibold">
+                                            Latest
+                                        </Badge>
+                                    </div>
 
-                            {/* Specs */}
-                            <div className="flex items-center gap-4 text-xs ">
-                                <div className="flex items-center gap-1.5">
-                                    <Box className="w-3.5 h-3.5 text-slate-400" />
-                                    <span>{modPackData.gameVersion}</span>
+                                    <p className="text-xs text-slate-400 leading-relaxed mb-3">
+                                        {item.description || "Custom modpack for RealCraft SMP with over 250+ mods and tons of features!"}
+                                    </p>
+
+                                    {/* Specs */}
+                                    <div className="flex items-center gap-4 text-xs ">
+                                        <div className="flex items-center gap-1.5">
+                                            <Box className="w-3.5 h-3.5 text-slate-400" />
+                                            <span>{item.minecraftVersion}</span>
+                                        </div>
+                                        <div className="flex items-center gap-1.5">
+                                            <Wrench className="w-3.5 h-3.5 text-slate-400" />
+                                            <span>{item.loader}</span>
+                                        </div>
+                                        <div className="flex items-center gap-1.5">
+                                            <HardDrive className="w-3.5 h-3.5 text-slate-400" />
+                                            <span>{formatFileSize(item.fileSize)}</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="flex items-center gap-1.5">
-                                    <Wrench className="w-3.5 h-3.5 text-slate-400" />
-                                    <span>{modPackData.loader}</span>
-                                </div>
-                                <div className="flex items-center gap-1.5">
-                                    <HardDrive className="w-3.5 h-3.5 text-slate-400" />
-                                    <span>{modPackData.size}</span>
+
+                                {/* Actions */}
+                                <div className="flex items-center gap-2.5 mt-4">
+                                    <Button
+                                        onClick={item.onDownload}
+                                        className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs uppercase px-4 h-9 gap-2 rounded-lg"
+                                    >
+                                        <Download className="w-3.5 h-3.5" />
+                                        Download
+                                    </Button>
+                                    <Button
+                                        onClick={item.onViewVersions}
+                                        variant="outline"
+                                        className="bg-transparent  border-slate-700/80 hover:bg-slate-800/60 hover:text-white font-bold text-xs uppercase px-4 h-9 rounded-lg"
+                                    >
+                                        View All Versions
+                                    </Button>
                                 </div>
                             </div>
                         </div>
+                    ))}
 
-                        {/* Actions */}
-                        <div className="flex items-center gap-2.5 mt-4">
-                            <Button
-                                onClick={modPackData.onDownload}
-                                className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs uppercase px-4 h-9 gap-2 rounded-lg"
-                            >
-                                <Download className="w-3.5 h-3.5" />
-                                Download
-                            </Button>
-                            <Button
-                                onClick={modPackData.onViewVersions}
-                                variant="outline"
-                                className="bg-transparent  border-slate-700/80 hover:bg-slate-800/60 hover:text-white font-bold text-xs uppercase px-4 h-9 rounded-lg"
-                            >
-                                View All Versions
-                            </Button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </Card>

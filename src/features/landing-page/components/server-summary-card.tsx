@@ -3,8 +3,6 @@
 import {Card, CardContent} from "@/components/ui/card";
 import {Server, Users} from "lucide-react";
 import {Separator} from "@/components/ui/separator";
-import {useEffect, useState} from "react";
-import {ServerStatusResponse} from "@/types/server";
 import {useServerStatus} from "@/hooks/server-status";
 import {Skeleton} from "@/components/ui/skeleton";
 import {AnimatePresence, motion} from "framer-motion";
@@ -12,39 +10,16 @@ import {AnimatePresence, motion} from "framer-motion";
 
 export default function ServerSummaryCard() {
 
-    const [initialServers, setInitialServers] = useState<ServerStatusResponse[]>([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/servers/status`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Failed to fetch server status");
-                }
-                return response.json();
-            })
-            .then((data: ServerStatusResponse[]) => {
-                setInitialServers(data);
-            })
-            .catch((error) => {
-                console.error(error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, []);
-
-
-    const servers = useServerStatus(initialServers);
+    const { servers, loading, error } = useServerStatus(false);
 
 
     const totalServers = servers.length;
     const totalPlayers = servers.reduce(
         (acc, item) => acc + (item.status?.playersOnline || 0),
         0
-    );
+    );console.log(loading, servers)
 
-    const isDataReady = !loading && (initialServers.length === 0 || servers.length > 0);
+    const isDataReady = !loading;
 
     return(
         <Card className={"w-fit"}>

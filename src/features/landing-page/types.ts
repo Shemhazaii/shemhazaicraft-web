@@ -1,12 +1,14 @@
 export interface ModpackCardProps {
-    title: string;
-    version: string;
-    tag: string;
+    id: string;
+    name: string;
     description: string;
-    gameVersion: string;
+    slug: string;
+    version: string;
+    minecraftVersion: string;
     loader: string;
-    size: string;
-    imageUrl: string;
+    fileName: string;
+    fileSize: number;
+    thumbnailObjectKey: string;
     onDownload?: () => void;
     onViewVersions?: () => void;
 }
@@ -15,8 +17,10 @@ export interface NewsItem {
     id: string;
     title: string;
     description: string;
-    date: string;
-    imageUrl: string;
+    slug: string;
+    thumbnailUrl: string;
+    publishedAt: string;
+
 }
 
 export interface NewsCardProps {

@@ -12,6 +12,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function ServerStatusCard() {
+
     const containerVariants = {
         hidden: { opacity: 0 },
         show: {
@@ -22,54 +23,7 @@ export default function ServerStatusCard() {
         },
     };
 
-
-    const [initialServers, setInitialServers] = useState<ServerStatusResponse[]>([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/servers/status`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Failed to fetch server status");
-                }
-                return response.json();
-            })
-            .then(async (data: ServerStatusResponse[]) => {
-                const updatedServers: ServerStatusResponse[] = await Promise.all(
-                    data.map(async (item): Promise<ServerStatusResponse> => {
-                        const pingUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/servers/status`;
-                        const startTime = performance.now();
-                        let clientPing = 0;
-
-                        try {
-                            await fetch(pingUrl);
-                            clientPing = Math.round(performance.now() - startTime);
-                        } catch (error) {
-                            console.error(`Gagal ping ke ${item.server}:`, error);
-                            clientPing = 0;
-                        }
-
-                        return {
-                            server: item.server,
-                            status: {
-                                ...item.status,
-                                latency: (item.status.latency || 0) + clientPing,
-                            },
-                        };
-                    })
-                );
-
-                setInitialServers(updatedServers);
-            })
-            .catch((error) => {
-                console.error(error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, []);
-
-    const servers = useServerStatus(initialServers);
+    const { servers, loading, error } = useServerStatus(true);
 
     return (
         <Card className="w-full p-5 rounded-xl">

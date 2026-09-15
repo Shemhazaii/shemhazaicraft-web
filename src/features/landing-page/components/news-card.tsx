@@ -3,11 +3,7 @@ import Link from "next/link";
 import {ArrowRight} from "lucide-react";
 import Image from "next/image";
 import {NewsCardProps} from "@/features/landing-page/types";
-
-
-
-
-
+import {formatRelativeTime} from "@/lib/date-utils";
 
 export function NewsCard(newsData : NewsCardProps) {
     return (
@@ -38,7 +34,7 @@ export function NewsCard(newsData : NewsCardProps) {
                         >
                             <div className="flex items-center gap-3 min-w-0">
                                 <div className="relative w-12 h-12 shrink-0 rounded-lg overflow-hidden bg-slate-800">
-                                    <Image                                  src={item.imageUrl}
+                                    <Image                                  src={"/dummy.png"}
                                                                             alt={item.title}
                                                                             fill
                                                                             className="object-cover" />
@@ -55,7 +51,7 @@ export function NewsCard(newsData : NewsCardProps) {
                             </div>
 
                             <span className="text-[11px] text-slate-500 shrink-0 font-medium ml-2">
-                {item.date}
+                {formatRelativeTime(item.publishedAt)}
               </span>
                         </div>
                     ))}
