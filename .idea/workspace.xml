@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="forget to mention, added the power of anime">
-      <change afterPath="$PROJECT_DIR$/src/features/landing-page/services/modpack-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/landing-page/services/news-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/landing-page/services/server-service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/date-utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/http-common.ts" afterDir="false" />
+    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="code tidying, performance fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(public)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(public)/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/modpack-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/modpack-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/news-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/news-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/server-summary-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/server-summary-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/landing-page/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hooks/server-status.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/server-status.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +137,7 @@
       <workItem from="1789393348363" duration="1987000" />
       <workItem from="1789435265343" duration="4885000" />
       <workItem from="1789447874215" duration="118000" />
-      <workItem from="1789459426015" duration="9959000" />
+      <workItem from="1789459426015" duration="10647000" />
     </task>
     <task id="LOCAL-00001" summary="finished main screen">
       <option name="closed" value="true" />
@@ -199,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1789376295347</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="code tidying, performance fixes">
+      <option name="closed" value="true" />
+      <created>1789469779006</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1789469779006</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +217,7 @@
     <MESSAGE value="connected websocket" />
     <MESSAGE value="finised websocket integration with server status" />
     <MESSAGE value="forget to mention, added the power of anime" />
-    <option name="LAST_COMMIT_MESSAGE" value="forget to mention, added the power of anime" />
+    <MESSAGE value="code tidying, performance fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="code tidying, performance fixes" />
   </component>
 </project>
