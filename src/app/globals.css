@@ -128,3 +128,7 @@
     @apply font-sans;
   }
 }
+
+[data-slot="toast-viewport"] {
+  z-index: 100 !important;
+}

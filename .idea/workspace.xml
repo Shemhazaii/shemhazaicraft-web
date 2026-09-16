@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="code tidying, performance fixes">
+    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="minor bugfixes">
+      <change afterPath="$PROJECT_DIR$/src/components/toast/notification-toast.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/landing-page/components/play-now-dialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/clipboard.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/server-status.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/server-status.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(public)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(public)/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/modpack-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/modpack-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/title.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/title.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="66" />
+    <option name="cachedIndexableFilesCount" value="71" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -137,7 +143,8 @@
       <workItem from="1789393348363" duration="1987000" />
       <workItem from="1789435265343" duration="4885000" />
       <workItem from="1789447874215" duration="118000" />
-      <workItem from="1789459426015" duration="10647000" />
+      <workItem from="1789459426015" duration="11382000" />
+      <workItem from="1789542989548" duration="4798000" />
     </task>
     <task id="LOCAL-00001" summary="finished main screen">
       <option name="closed" value="true" />
@@ -195,7 +202,23 @@
       <option name="project" value="LOCAL" />
       <updated>1789469779006</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="minor bugfixes">
+      <option name="closed" value="true" />
+      <created>1789470536915</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1789470536915</updated>
+    </task>
+    <task id="LOCAL-00009" summary="minor bugfixes">
+      <option name="closed" value="true" />
+      <created>1789470570357</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1789470570357</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +241,7 @@
     <MESSAGE value="finised websocket integration with server status" />
     <MESSAGE value="forget to mention, added the power of anime" />
     <MESSAGE value="code tidying, performance fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="code tidying, performance fixes" />
+    <MESSAGE value="minor bugfixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor bugfixes" />
   </component>
 </project>

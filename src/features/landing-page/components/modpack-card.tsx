@@ -5,13 +5,13 @@ import {Box, Download, HardDrive, Wrench} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {ModpackCardProps} from "@/features/landing-page/types";
 import {formatFileSize} from "@/lib/utils";
+import Link from "next/link";
 
 interface Props {
     modPackData: ModpackCardProps[];
 }
 
 export function ModpackCard(data: Props) {
-
     return(
         <Card className=" p-5 rounded-xl flex flex-col justify-between">
             <div>
@@ -68,13 +68,14 @@ export function ModpackCard(data: Props) {
 
                                 {/* Actions */}
                                 <div className="flex items-center gap-2.5 mt-4">
-                                    <Button
+                                    <Link
+                                        href={`http://localhost:30901/shemhazaicraft/modpacks/${item.slug}/${item.version}/${item.fileName}`}
                                         onClick={item.onDownload}
-                                        className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs uppercase px-4 h-9 gap-2 rounded-lg"
+                                        className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs uppercase px-4 h-9 gap-2 rounded-lg flex items-center"
                                     >
                                         <Download className="w-3.5 h-3.5" />
                                         Download
-                                    </Button>
+                                    </Link>
                                     <Button
                                         onClick={item.onViewVersions}
                                         variant="outline"

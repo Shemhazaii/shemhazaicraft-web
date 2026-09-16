@@ -1,7 +1,9 @@
 import {Button} from "@/components/ui/button";
 import {Play} from "lucide-react";
+import {PlayNowDialog} from "@/features/landing-page/components/play-now-dialog";
+import {ModpackCardProps} from "@/features/landing-page/types";
 
-export default function Title() {
+export default function Title(modpackData:ModpackCardProps) {
 
     return(
         <div>
@@ -10,8 +12,9 @@ export default function Title() {
             <div>A modded Minecraft SMP Server experience with friends.</div>
             <div>Build, play, and grow together.</div>
             <div className="mt-5 flex justify-start gap-5">
-                <Button className={"py-5"} variant={"default"}><Play />PLAY NOW</Button>
+                <PlayNowDialog {...modpackData} />
                 <Button className={"py-5"} variant={"outline"}>VIEW SERVERS</Button>
+
             </div>
         </div>
     )

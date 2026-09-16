@@ -29,7 +29,7 @@ export default async function Home(){
       <div className="@container/main flex flex-1 flex-col gap-2">
 
         <div className="relative z-10 max-w-full  px-6 pt-20 pb-12">
-          <Title />
+          <Title {...modpackData[0]} />
           <div className="mt-5">
             <ServerSummaryCard />
           </div>
