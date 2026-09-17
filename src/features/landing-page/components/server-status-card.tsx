@@ -5,8 +5,6 @@ import Link from "next/link";
 import { ArrowRight, Signal, Users } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import { ServerStatusResponse } from "@/types/server";
-import { useEffect, useState } from "react";
 import { useServerStatus } from "@/hooks/server-status";
 import { Skeleton } from "@/components/ui/skeleton";
 import { AnimatePresence, motion } from "framer-motion";
@@ -24,6 +22,8 @@ export default function ServerStatusCard() {
     };
 
     const { servers, loading, error } = useServerStatus(true);
+
+
 
     return (
         <Card className="w-full p-5 rounded-xl">
@@ -69,7 +69,7 @@ export default function ServerStatusCard() {
                                 >
                                     <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden bg-slate-800">
                                         <Image
-                                            src={"/dummy.png"}
+                                            src={`${process.env.NEXT_PUBLIC_STORAGE_URL}/shemhazaicraft/${server.status.objectKey}`}
                                             alt={server.server}
                                             fill
                                             className="object-cover"

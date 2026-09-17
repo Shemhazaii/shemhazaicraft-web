@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="minor bugfixes">
-      <change afterPath="$PROJECT_DIR$/src/components/toast/notification-toast.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/landing-page/components/play-now-dialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/clipboard.ts" afterDir="false" />
+    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="added play now modal and download function for modpack card">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/Chart.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/configmap.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/service.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/values.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(public)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(public)/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/modpack-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/modpack-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/title.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/title.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +21,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="71" />
+    <option name="cachedIndexableFilesCount" value="83" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -28,6 +29,7 @@
       <list>
         <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -73,14 +75,14 @@
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/shemhazai/WebstormProjects/shemhazaicraft-web/src/app&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/shemhazai/WebstormProjects/shemhazaicraft-web/helm/shemhazaicraft&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.Next.js: server-side.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/home/shemhazai/WebstormProjects/shemhazaicraft-web/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -88,6 +90,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/helm/shemhazaicraft" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/app/(public)" />
@@ -144,7 +148,9 @@
       <workItem from="1789435265343" duration="4885000" />
       <workItem from="1789447874215" duration="118000" />
       <workItem from="1789459426015" duration="11382000" />
-      <workItem from="1789542989548" duration="4798000" />
+      <workItem from="1789542989548" duration="6178000" />
+      <workItem from="1789572281912" duration="3680000" />
+      <workItem from="1789606787925" duration="1960000" />
     </task>
     <task id="LOCAL-00001" summary="finished main screen">
       <option name="closed" value="true" />
@@ -218,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1789470570357</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added play now modal and download function for modpack card">
+      <option name="closed" value="true" />
+      <created>1789548027598</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1789548027598</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +256,7 @@
     <MESSAGE value="forget to mention, added the power of anime" />
     <MESSAGE value="code tidying, performance fixes" />
     <MESSAGE value="minor bugfixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor bugfixes" />
+    <MESSAGE value="added play now modal and download function for modpack card" />
+    <option name="LAST_COMMIT_MESSAGE" value="added play now modal and download function for modpack card" />
   </component>
 </project>

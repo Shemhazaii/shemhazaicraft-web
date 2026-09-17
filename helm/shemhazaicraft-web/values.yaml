@@ -1,0 +1,12 @@
+image:
+  repository: 100.72.155.46:31500/shemhazaicraft-web
+  tag: latest
+  pullPolicy: IfNotPresent
+
+publicApiUrl: "http://shemhazaicraft.minecraft.svc.cluster.local:8080"
+nextAuthSecret: "8058930cf2bd2650b5a37fc5838a84ed68b2ad9ba29d3bd837008473a97de34f"
+betterAuthSecret: "8058930cf2bd2650b5a37fc5838a84ed68b2ad9ba29d3bd837008473a97de34f"
+
+service:
+  type: ClusterIP
+  port: 3000

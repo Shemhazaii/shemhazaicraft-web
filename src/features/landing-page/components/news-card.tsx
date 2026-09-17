@@ -34,7 +34,7 @@ export function NewsCard(newsData : NewsCardProps) {
                         >
                             <div className="flex items-center gap-3 min-w-0">
                                 <div className="relative w-12 h-12 shrink-0 rounded-lg overflow-hidden bg-slate-800">
-                                    <Image                                  src={"/dummy.png"}
+                                    <Image                                  src={`${process.env.NEXT_PUBLIC_STORAGE_URL}/shemhazaicraft/${item.thumbnailUrl}`}
                                                                             alt={item.title}
                                                                             fill
                                                                             className="object-cover" />
