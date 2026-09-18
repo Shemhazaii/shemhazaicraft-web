@@ -13,16 +13,38 @@ spec:
       labels:
         app: {{ .Release.Name }}
     spec:
+      # Fix 2: Beritahu DNS Pod bahwa shemhazaicraft.my.id ada di IP cluster
+      hostAliases:
+        - ip: "100.72.155.46" # IP Ingress / Node tempat controller berjalan
+          hostnames:
+            - "craft.shemhazai.my.id"
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: 3000
+            - name: http
+              containerPort: 3000
           env:
-            # Menginstruksikan Spring Boot untuk memilih file config di dalam JAR
+            # Fix SSL Self-Signed Certificate untuk Node.js fetch
+            - name: NODE_TLS_REJECT_UNAUTHORIZED
+              value: "0"
+
+            # Variabel pendukung lainnya
+            - name: AUTH_TRUST_HOST
+              value: "true"
+            - name: NEXTAUTH_URL
+              value: "https://craft.shemhazai.my.id"
+            - name: BETTER_AUTH_URL
+              value: "https://craft.shemhazai.my.id"
             - name: NEXT_PUBLIC_API_URL
               value: "{{ .Values.publicApiUrl }}"
+            - name: NEXT_PUBLIC_STORAGE_URL
+              value: "{{ .Values.storageUrl }}"
+            - name: NEXT_PUBLIC_WEBSOCKET_URL
+              value: "{{ .Values.websocketUrl }}"
+            - name: NEXT_PUBLIC_STORAGE_BUCKET
+              value: "{{ .Values.storageBucket }}"
             - name: NEXTAUTH_SECRET
               value: "{{ .Values.nextAuthSecret }}"
             - name: BETTER_AUTH_SECRET

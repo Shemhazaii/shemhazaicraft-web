@@ -1,9 +1,12 @@
 image:
   repository: 100.72.155.46:31500/shemhazaicraft-web
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
-publicApiUrl: "http://shemhazaicraft.minecraft.svc.cluster.local:8080"
+publicApiUrl: "https://craft.shemhazai.my.id/api"
+storageUrl: "https://craft.shemhazai.my.id/storage"
+websocketUrl: "wss://craft.shemhazai.my.id/api"
+storageBucket: "shemhazaicraft-prod"
 nextAuthSecret: "8058930cf2bd2650b5a37fc5838a84ed68b2ad9ba29d3bd837008473a97de34f"
 betterAuthSecret: "8058930cf2bd2650b5a37fc5838a84ed68b2ad9ba29d3bd837008473a97de34f"
 

@@ -4,11 +4,10 @@ import {ServerStatusResponse} from "@/types/server";
 export function createServerStatusClient(
     onMessage: (status: ServerStatusResponse) => void
 ) {
+
     const client = new Client({
-        brokerURL: "ws://localhost:8080/ws",
-
+        brokerURL: `${process.env.NEXT_PUBLIC_WEBSOCKET_URL}/ws`,
         reconnectDelay: 5000,
-
         onConnect: () => {
             console.log("WebSocket connected");
 

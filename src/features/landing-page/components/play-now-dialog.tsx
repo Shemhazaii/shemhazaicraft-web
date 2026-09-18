@@ -58,7 +58,7 @@ export function PlayNowDialog(modpack:ModpackCardProps) {
                                 <p className="text-xs">{modpack.version} • {modpack.minecraftVersion} • {modpack.loader}</p>
                             </div>
                             <Link
-                                href={`http://localhost:30901/shemhazaicraft/modpacks/${modpack.slug}/${modpack.version}/${modpack.fileName}`}
+                                href={`${process.env.NEXT_PUBLIC_STORAGE_URL}/${process.env.NEXT_PUBLIC_STORAGE_BUCKET}/modpacks/${modpack.slug}/${modpack.version}/${modpack.fileName}`}
                                 className="bg-primary text-primary-foreground uppercase rounded-md px-3 py-1.5 text-xs font-semibold flex items-center gap-1">
                                 <Download className="w-3.5 h-3.5" />Download
                             </Link>

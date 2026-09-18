@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="added play now modal and download function for modpack card">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/Chart.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/configmap.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/values.yaml" afterDir="false" />
+    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="added production parameters">
+      <change afterPath="$PROJECT_DIR$/cluster-issuer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/ingress.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helm/shemhazaicraft-web/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/values.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/modpack-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/modpack-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/news-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/news-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/play-now-dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/play-now-dialog.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/websocket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/websocket.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +24,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="83" />
+    <option name="cachedIndexableFilesCount" value="86" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -150,7 +153,12 @@
       <workItem from="1789459426015" duration="11382000" />
       <workItem from="1789542989548" duration="6178000" />
       <workItem from="1789572281912" duration="3680000" />
-      <workItem from="1789606787925" duration="1960000" />
+      <workItem from="1789606787925" duration="16458000" />
+      <workItem from="1789654205690" duration="9550000" />
+      <workItem from="1789694718631" duration="1716000" />
+      <workItem from="1789720940553" duration="3302000" />
+      <workItem from="1789725651098" duration="2695000" />
+      <workItem from="1789743467902" duration="1221000" />
     </task>
     <task id="LOCAL-00001" summary="finished main screen">
       <option name="closed" value="true" />
@@ -232,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1789548027598</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added production parameters">
+      <option name="closed" value="true" />
+      <created>1789609051877</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1789609051877</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +273,7 @@
     <MESSAGE value="code tidying, performance fixes" />
     <MESSAGE value="minor bugfixes" />
     <MESSAGE value="added play now modal and download function for modpack card" />
-    <option name="LAST_COMMIT_MESSAGE" value="added play now modal and download function for modpack card" />
+    <MESSAGE value="added production parameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="added production parameters" />
   </component>
 </project>

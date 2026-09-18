@@ -69,7 +69,7 @@ export default function ServerStatusCard() {
                                 >
                                     <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden bg-slate-800">
                                         <Image
-                                            src={`${process.env.NEXT_PUBLIC_STORAGE_URL}/shemhazaicraft/${server.status.objectKey}`}
+                                            src={`${process.env.NEXT_PUBLIC_STORAGE_URL}/${process.env.NEXT_PUBLIC_STORAGE_BUCKET}/${server.status.objectKey}`}
                                             alt={server.server}
                                             fill
                                             className="object-cover"

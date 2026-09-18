@@ -4,15 +4,13 @@ metadata:
   name: {{ .Release.Name }}
   namespace: minecraft
   labels:
-    app: shemhazaicraft
-    release: {{ .Release.Name }}
+    app: {{ .Release.Name }}
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: 3000                 # <--- Ganti "http" langsung ke angka 3000 (atau name: http jika deployment sudah di-update)
       protocol: TCP
       name: http
   selector:
-    app: shemhazaicraft
-    release: {{ .Release.Name }}
+    app: {{ .Release.Name }}           # <--- Hapus baris 'release: ...', cukup 'app' saja

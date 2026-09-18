@@ -20,8 +20,18 @@ module.exports = {
         pathname: '/**',
       },
       {
+        protocol: 'http',
+        hostname: 'shemhazaicraft.my.id',
+        pathname: '/storage/**',
+      },
+      {
         protocol: 'https',
         hostname: 'shemhazaicraft.my.id',
+        pathname: '/storage/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'craft.shemhazai.my.id',
         pathname: '/storage/**',
       },
     ],

@@ -69,7 +69,7 @@ export function ModpackCard(data: Props) {
                                 {/* Actions */}
                                 <div className="flex items-center gap-2.5 mt-4">
                                     <Link
-                                        href={`${process.env.NEXT_PUBLIC_STORAGE_URL}/shemhazaicraft/modpacks/${item.slug}/${item.version}/${item.fileName}`}
+                                        href={`${process.env.NEXT_PUBLIC_STORAGE_URL}/${process.env.NEXT_PUBLIC_STORAGE_BUCKET}/modpacks/${item.slug}/${item.version}/${item.fileName}`}
                                         onClick={item.onDownload}
                                         className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-xs uppercase px-4 h-9 gap-2 rounded-lg flex items-center"
                                     >
