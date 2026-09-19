@@ -68,7 +68,6 @@ const NavbarWrapper = ({ className, ...props }: NavbarWrapperProps) => {
                 </Link>
             </div>
 
-            {/* 2. Desktop Navigation (Sembunyi di mobile, tampil di Desktop / lg) */}
             <div className="hidden lg:flex lg:w-1/3 justify-center">
                 <NavigationMenu>
                     <NavigationMenuList>
