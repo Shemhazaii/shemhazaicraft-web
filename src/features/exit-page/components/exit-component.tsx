@@ -74,13 +74,12 @@ export default function ExitComponent(data: ExitPageProps) {
     ];
 
     return (
-        <div className="min-h-screen text-neutral-100 font-sans relative overflow-x-hidden flex flex-col justify-between">
+        <div className="min-h-screen font-sans relative overflow-x-hidden flex flex-col justify-between">
 
             <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-linear-to-b from-primary/10 via-primary/5 to-transparent blur-3xl pointer-events-none -z-10" />
 
             <main className="max-w-4xl mx-auto w-full px-4 py-8 md:py-12 grow flex flex-col items-center">
 
-                {}
                 <div className="text-center w-full mb-8">
                     <motion.h1
                         initial={{ opacity: 0, y: -10 }}
@@ -97,14 +96,14 @@ export default function ExitComponent(data: ExitPageProps) {
                         className="flex flex-wrap items-center justify-center gap-2 text-xs font-medium"
                     >
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/80 border border-accent/80 shadow-sm">
-              <Monitor className="w-3.5 h-3.5 text-blue-400" />
+              <Monitor className="w-3.5 h-3.5 text-blue-400 text" />
                 {data.OS}
             </span>
                         <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/80 border border-accent/80 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               from <strong className="font-semibold">{appName}</strong>
             </span>
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/80 border border-accent/80">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/80 border border-accent/80 shadow-sm">
               <Tag className="w-3.5 h-3.5 text-purple-400" />
               v1.0.0
             </span>
@@ -113,10 +112,8 @@ export default function ExitComponent(data: ExitPageProps) {
 
                 {}
                 <section className="w-full max-w-2xl bg-background/60 border border-accent rounded-2xl p-6 md:p-8 backdrop-blur-sm shadow-2xl mb-8 relative overflow-hidden">
-
-                    {/* Progress Bar Container */}
                     <div className="relative mb-4">
-                        <div className="h-3 w-full bg-background/90 rounded-full overflow-hidden p-0.5 border border-accent/30">
+                        <div className="h-3 w-full bg-background/90 rounded-full overflow-hidden p-0.5 border-2 border-accent/80">
                             <motion.div
                                 className="h-full bg-linear-to-r from-primary via-emerald-700 to-white rounded-full transition-all duration-300 ease-out shadow-lg shadow-blue-500/30"
                                 style={{ width: `${progressPercentage}%` }}
@@ -151,10 +148,10 @@ export default function ExitComponent(data: ExitPageProps) {
                                     onClick={() => {
                                         window.location.href = data.link;
                                     }}
-                                    className="w-full sm:w-auto px-8 py-3.5 bg-linear-to-r from-primary via-emerald-700 to-emerald-300 hover:from-primary hover:to-white  font-bold rounded-xl shadow-xl shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center justify-center gap-3 mx-auto text-base group"
+                                    className="w-full sm:w-auto px-8 py-3.5 bg-linear-to-r from-primary via-emerald-700 to-emerald-300 hover:from-primary hover:to-white  font-bold rounded-xl shadow-xl shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center justify-center gap-3 mx-auto text-base group text-white"
                                 >
 
-                                    <span>Go to link</span>
+                                    <span>Continue to {appName}</span>
 
                                 </button>
                                 <div className="flex items-center justify-center gap-1.5 text-xs text-emerald-400 font-medium">
@@ -171,28 +168,32 @@ export default function ExitComponent(data: ExitPageProps) {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="w-full max-w-3xl bg-amber-950/20 border border-amber-500/30 rounded-xl p-4 md:p-5 mb-8 shadow-lg shadow-amber-950/10 relative overflow-hidden group"
+                    className="w-full max-w-3xl bg-amber-500/10 dark:bg-amber-950/20 border border-amber-500/30 rounded-xl p-4 md:p-5 mb-8 shadow-sm dark:shadow-lg dark:shadow-amber-950/10 relative overflow-hidden group"
                 >
-                    <div className="absolute top-0 left-0 w-1 h-full bg-amber-500" />
+                    <div className="absolute top-0 left-0 w-1 h-full bg-amber-600 dark:bg-amber-500" />
                     <div className="flex gap-3.5 items-start">
-                        <div className="p-2 bg-amber-500/10 rounded-lg border border-amber-500/20 text-amber-400 shrink-0 mt-0.5">
+                        <div className="p-2 bg-amber-500/15 dark:bg-amber-500/10 rounded-lg border border-amber-600/30 dark:border-amber-500/20 text-amber-700 dark:text-amber-400 shrink-0 mt-0.5">
                             <ShieldAlert className="w-5 h-5" />
                         </div>
-                        <div className="space-y-1.5 text-xs md:text-sm text-amber-200/90 leading-relaxed">
-                            <p className="font-medium text-amber-300">
+                        <div className="space-y-1.5 text-xs md:text-sm text-amber-950/80 dark:text-amber-200/90 leading-relaxed">
+                            <p className="font-medium text-amber-900 dark:text-amber-300">
                                 There are pop ads on this page. Report on{' '}
                                 <a
                                     href="#discord"
-                                    className="underline decoration-amber-400/50 hover:decoration-amber-300 text-amber-200 font-semibold hover:text-white transition-colors"
+                                    className="underline decoration-amber-600/50 dark:decoration-amber-400/50 hover:decoration-amber-700 dark:hover:decoration-amber-300 text-amber-950 dark:text-amber-200 font-semibold hover:text-amber-700 dark:hover:text-white transition-colors"
                                 >
                                     Discord
                                 </a>{' '}
                                 if you see a foul ad.
                             </p>
                             <p>
-                                Don&apos;t be tricked: only download if clicking the button takes you directly to <strong className="text-amber-100 font-semibold">{capitalizeFirstLetter(appName)}</strong> host.
+                                Don&apos;t be tricked: only download if clicking the button takes you directly to{' '}
+                                <strong className="text-amber-950 dark:text-amber-100 font-semibold">
+                                    {capitalizeFirstLetter(appName)}
+                                </strong>{' '}
+                                host.
                             </p>
-                            <p className="text-amber-400/80 text-xs">
+                            <p className="text-amber-800/90 dark:text-amber-400/80 text-xs font-medium dark:font-normal">
                                 Tip: Match the downloaded file size with the size specified on the main game page if possible.
                             </p>
                         </div>
@@ -201,7 +202,6 @@ export default function ExitComponent(data: ExitPageProps) {
 
                 {}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full max-w-3xl">
-
                     <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -211,22 +211,22 @@ export default function ExitComponent(data: ExitPageProps) {
                         <div>
                             <div className="flex items-center gap-2 mb-4">
                                 <HelpCircle className="w-4 h-4 text-primary" />
-                                <h3 className="font-bold text-white text-base">Having trouble?</h3>
+                                <h3 className="font-bold  text-base">Having trouble?</h3>
                             </div>
 
                             <div className="space-y-2">
                                 {troubleGuides.map((guide) => (
                                     <div
                                         key={guide.id}
-                                        className="border border-accent/80 rounded-xl overflow-hidden /40"
+                                        className=" rounded-xl overflow-hidden /40"
                                     >
                                         <button
                                             onClick={() => {}}
-                                            className="w-full p-3 text-left flex items-center justify-between gap-2 hover:bg-accent transition-colors"
+                                            className="w-full px-3.5 py-2.5 rounded-xl border border-accent/90 hover:bg-accent hover:border-accent font-medium text-xs transition-all duration-200 flex items-center justify-center gap-2 group shadow-sm"
                                         >
                                             <div className="flex items-center gap-2.5 min-w-0">
                                                 {guide.icon}
-                                                <span className="text-xs font-medium text-neutral-200 truncate">{guide.title}</span>
+                                                <span className="text-xs font-medium truncate">{guide.title}</span>
                                             </div>
                                             <ChevronDown className={`w-3.5 h-3.5 text-accent shrink-0 transition-transform duration-200`} />
                                         </button>
@@ -236,7 +236,7 @@ export default function ExitComponent(data: ExitPageProps) {
                             </div>
                         </div>
 
-                        <div className="mt-4 pt-3 border-t border-neutral-800/60 text-[11px] text-neutral-500 flex items-center justify-between">
+                        <div className="mt-4 pt-3 border-t border-accent text-[11px] text-neutral-500 flex items-center justify-between">
                             <span>Need extract password? Check game page</span>
                             <ExternalLink className="w-3 h-3 text-neutral-600" />
                         </div>

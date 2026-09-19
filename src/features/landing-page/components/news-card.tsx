@@ -7,7 +7,7 @@ import {formatRelativeTime} from "@/lib/date-utils";
 
 export function NewsCard(newsData : NewsCardProps) {
     return (
-        <Card className=" p-5 rounded-xl flex flex-col justify-between">
+        <Card className=" p-5 rounded-xl flex flex-col justify-between shadow-lg">
             <div>
                 {/* Header */}
                 <div className="flex items-center justify-between mb-4">

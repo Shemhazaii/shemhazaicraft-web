@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="production deploy">
-      <change afterPath="$PROJECT_DIR$/src/app/go/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/go/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/exit-page/components/custom-header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/exit-page/components/exit-component.tsx" afterDir="false" />
+    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="added exit page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/navbar/navbar-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/navbar-wrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/exit-page/components/custom-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/exit-page/components/custom-header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/exit-page/components/exit-component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/exit-page/components/exit-component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/modpack-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/modpack-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/news-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/news-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/server-summary-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/server-summary-card.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="86" />
+    <option name="cachedIndexableFilesCount" value="91" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -158,7 +157,8 @@
       <workItem from="1789720940553" duration="3302000" />
       <workItem from="1789725651098" duration="2695000" />
       <workItem from="1789743467902" duration="1737000" />
-      <workItem from="1789794954873" duration="6796000" />
+      <workItem from="1789794954873" duration="8017000" />
+      <workItem from="1789812224376" duration="4039000" />
     </task>
     <task id="LOCAL-00001" summary="finished main screen">
       <option name="closed" value="true" />
@@ -256,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1789744830560</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added exit page">
+      <option name="closed" value="true" />
+      <created>1789802065686</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1789802065686</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +291,7 @@
     <MESSAGE value="added play now modal and download function for modpack card" />
     <MESSAGE value="added production parameters" />
     <MESSAGE value="production deploy" />
-    <option name="LAST_COMMIT_MESSAGE" value="production deploy" />
+    <MESSAGE value="added exit page" />
+    <option name="LAST_COMMIT_MESSAGE" value="added exit page" />
   </component>
 </project>

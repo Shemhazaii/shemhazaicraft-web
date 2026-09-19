@@ -26,7 +26,7 @@ export default function ServerStatusCard() {
 
 
     return (
-        <Card className="w-full p-5 rounded-xl">
+        <Card className="w-full p-5 rounded-xl shadow-lg">
             {/* Header */}
             <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">

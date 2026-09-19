@@ -17,7 +17,7 @@ export default function ServerSummaryCard() {
     const totalPlayers = servers.reduce(
         (acc, item) => acc + (item.status?.playersOnline || 0),
         0
-    );console.log(loading, servers)
+    );
 
     const isDataReady = !loading;
 

@@ -31,7 +31,7 @@ const navLinks = [
     { name: "Servers", href: "/servers" },
     { name: "Modpacks", href: "/modpacks" },
     { name: "News", href: "/news" },
-    { name: "About", href: "/about" },
+    { name: "Donate", href: "/donate" },
 ];
 
 const NavbarWrapper = ({ className, ...props }: NavbarWrapperProps) => {
@@ -185,7 +185,7 @@ const NavbarWrapper = ({ className, ...props }: NavbarWrapperProps) => {
                                     </Button>
                                 </div>
                             </div>
-                            <Button variant={"default"} className="w-full">
+                            <Button variant={"default"} className="w-full" onClick={()=>newTab("/go?link=https://discord.com/invite/WTa9q6SXFH")}>
                                 Join Discord
                             </Button>
                         </div>
