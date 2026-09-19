@@ -4,19 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="added production parameters">
-      <change afterPath="$PROJECT_DIR$/cluster-issuer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/ingress.yaml" afterDir="false" />
+    <list default="true" id="187ac4cc-589a-4859-b527-2ce7b3ebb56c" name="Changes" comment="production deploy">
+      <change afterPath="$PROJECT_DIR$/src/app/go/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/go/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/exit-page/components/custom-header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/exit-page/components/exit-component.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/templates/service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helm/shemhazaicraft-web/values.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/helm/shemhazaicraft-web/values.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navbar/navbar-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/navbar-wrapper.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/modpack-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/modpack-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/news-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/news-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/play-now-dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/play-now-dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/landing-page/components/server-status-card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/websocket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/websocket.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
         <option value="Dockerfile" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -100,6 +97,8 @@
       <recent name="$PROJECT_DIR$/src/app/(public)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app" />
+      <recent name="$PROJECT_DIR$/src/features/exit-page/components" />
       <recent name="$PROJECT_DIR$/src/lib" />
       <recent name="$PROJECT_DIR$/src/features/landing-page/components" />
       <recent name="$PROJECT_DIR$/src/app/(public)" />
@@ -158,7 +157,8 @@
       <workItem from="1789694718631" duration="1716000" />
       <workItem from="1789720940553" duration="3302000" />
       <workItem from="1789725651098" duration="2695000" />
-      <workItem from="1789743467902" duration="1221000" />
+      <workItem from="1789743467902" duration="1737000" />
+      <workItem from="1789794954873" duration="6796000" />
     </task>
     <task id="LOCAL-00001" summary="finished main screen">
       <option name="closed" value="true" />
@@ -248,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1789609051877</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="production deploy">
+      <option name="closed" value="true" />
+      <created>1789744830560</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1789744830560</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +282,7 @@
     <MESSAGE value="minor bugfixes" />
     <MESSAGE value="added play now modal and download function for modpack card" />
     <MESSAGE value="added production parameters" />
-    <option name="LAST_COMMIT_MESSAGE" value="added production parameters" />
+    <MESSAGE value="production deploy" />
+    <option name="LAST_COMMIT_MESSAGE" value="production deploy" />
   </component>
 </project>

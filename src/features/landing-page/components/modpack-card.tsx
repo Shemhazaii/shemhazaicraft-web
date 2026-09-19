@@ -28,7 +28,7 @@ export function ModpackCard(data: Props) {
                     {data.modPackData.map((item) => (
                         <div key={item.id} className="flex items-center justify-between gap-3 p-2 rounded-lg hover:bg-secondary transition-colors cursor-pointer group">
                             {/* Cover Image */}
-                            <div className="relative w-full sm:w-36 h-36 shrink-0 rounded-lg overflow-hidden ">
+                            <div className="relative w-full sm:w-36 h-36 shrink-0 rounded-lg overflow-hidden hidden sm:block ">
                                 <Image src={`/dummy.png`} alt={item.name || "Modpack Cover"} fill className="object-cover" />
                             </div>
 
